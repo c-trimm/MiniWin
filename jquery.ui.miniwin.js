@@ -1,17 +1,9 @@
-window.log = function(){
-  log.history = log.history || [];   // store logs to an array for reference
-  log.history.push(arguments);
-  if(this.console){
-    console.log( Array.prototype.slice.call(arguments) );
-  }
-};
-
 /*
- * miniWin 1.0
+ * MiniWin
+ * Author: Casey Trimm
+ * Created: June 2010
  *
- * Copyright 2010, Casey Trimm
- *
- * Depends:
+ * Dependencies:
  *	jquery.ui.core.js
  *	jquery.ui.widget.js
  *  jquery.ui.button.js
@@ -30,7 +22,6 @@ window.log = function(){
 			dialogOps: {}
 		},
 		
- 
 		_create : function() {
 			var self = this, ops = this.options, el = this.element, tb = $(ops.taskbar);
 			
@@ -62,8 +53,6 @@ window.log = function(){
 				
 				if (self.$taskbar)
 					self.taskButton = self._taskbutton();
-				else
-					log("Taskbar not present.");
 				
 				// On certain dialog events, we want to execute methods, so we extend the dialog options with our methods.
 				$.extend(ops.dialogOps,{
@@ -259,7 +248,6 @@ window.log = function(){
 			self.taskButton.element.removeClass("ui-state-active");
 			
 			el.trigger("minimize");
-			log(self.state);
 		},
 		
 		normalize: function() {
@@ -285,8 +273,6 @@ window.log = function(){
 			
 			
 			//el.dialog("focus");
-			
-			
 		},
 		
 		chTitle: function(newTitle) {
